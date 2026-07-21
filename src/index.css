@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: content-box;
+    white-space: normal;
+    text-indent: 0;
+    letter-spacing: 0;
+    font-variant: normal;
+}
+
+body {
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color-primary: var(--color-primary);
+    --bg-color-surface-primary: var(--color-surface-primary);
+    --text-color-accent: var(--color-accent);
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+    --color-primary: #1e90ff;
+    --color-secondary: #34be5b;
+    --bg-color-default: #fff;
+    --color-surface-primary: #f3f4f4;
+    --color-accent: #1e90ff;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-primary: #2d353d;
+    --color-secondary: #9fb9d3;
+    --color-surface-primary: #383838;
+    --color-accent: #1e90ff;
+    --bg-color-default: #222627;
+}
+
+@layer utilities {
+    .title-fluid {
+        font-size: clamp(1.75rem, 5vw, 3.75rem);
+    }
+
+    .subtitle-fluid {
+        font-size: clamp(1.5rem, 10vw, 2.25rem);
+    }
+
+    .text-color-primary {
+        color: var(--color-primary);
+    }
+
+    .text-color-secondary {
+        color: var(--color-secondary);
+    }
+
+    .text-color-accent {
+        color: var(--text-color-accent);
+    }
+
+    .color-bg {
+        background-color: var(--bg-color-default);
+    }
+
+    .color-bg-primary {
+        background-color: var(--bg-color-primary);
+    }
+
+    .color-surface-primary {
+        background-color: var(--bg-color-surface-primary);
+    }
+
+    @media screen and (width > 768px) {
+        .container {
+            width: clamp(20rem, 90vw, 80rem);
+        }
+    }
+
+    @media screen and (width < 768px) {
+        .title-fluid {
+            font-size: clamp(1.375rem, 10vw, 2.75rem);
+        }
+    }
+}
