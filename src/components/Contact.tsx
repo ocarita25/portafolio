@@ -10,6 +10,7 @@ const Contact = () => {
 
     const [sending, setSending] = useState<boolean>(false)
     const [notificar, setNotificar] = useState<boolean>(false)
+    const [mensaje, setMensaje] = useState<string>("")
     const [formData, setFormData] = useState<FormDataInterface>(
         {
             name: "",
@@ -32,17 +33,7 @@ const Contact = () => {
 
         Verificar(form)
 
-        setTimeout(() => {
-            setSending(false)
-            setNotificar(true)
-        }, 2000)
-
-
-        setTimeout(() => {
-            setNotificar(false)
-        }, 4000)
-
-        // await EnviarCorreo()
+        await EnviarCorreo()
     }
 
     function Verificar(form: HTMLFormElement) {
@@ -63,10 +54,17 @@ const Contact = () => {
 
         if (res.ok) {
             console.log("Correo enviado:", data);
+            setMensaje("Correo enviado correctamente.")
         } else {
             console.error("Error:", data.error);
+            setMensaje("Error. No se pudo enviar el correo")
         }
         setSending(false)
+        setNotificar(true)
+
+        setTimeout(() => {
+            setNotificar(false)
+        }, 4000)
     }
 
     return (
@@ -124,7 +122,7 @@ const Contact = () => {
                 <div className="fixed h-dvh w-dvw bg-[#000a] backdrop-blur top-0 bottom-0 left-0 z-20 flex items-center justify-center">
                     <div className="rounded-xl m-auto bg-white p-10 w-[20rem] h-[10rem] text-black flex items-center justify-center">
                         <div className="text-center text-xl">
-                            <p>Correo enviado correctamente!</p>
+                            <p>{mensaje}</p>
                         </div>
                     </div>
                 </div>
