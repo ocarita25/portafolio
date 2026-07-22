@@ -28,7 +28,7 @@ const Contact = () => {
 
         const form = e.currentTarget
 
-        if (form.checkValidity()) {
+        if (!form.checkValidity()) {
             alert("falta campos")
             form.reportValidity()
             return
