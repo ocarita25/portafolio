@@ -16,8 +16,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         const { data, error } = await resend.emails.send({
-            from: "Tu Web <onboarding@resend.dev>", // o tu dominio verificado
-            to: ["tu-correo@ejemplo.com"],
+            from: `${name} <onboarding@resend.dev>`, // o tu dominio verificado
+            to: ["ocarita25@gamil.com"],
             subject: `Nuevo mensaje de ${name}`,
             html: `
         <p><strong>Nombre:</strong> ${name}</p>
