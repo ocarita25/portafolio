@@ -9,6 +9,7 @@ interface FormDataInterface {
 const Contact = () => {
 
     const [sending, setSending] = useState<boolean>(false)
+    const [notificar, setNotificar] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormDataInterface>(
         {
             name: "",
@@ -30,7 +31,18 @@ const Contact = () => {
         setSending(true)
 
         Verificar(form)
-        await EnviarCorreo()
+
+        setTimeout(() => {
+            setSending(false)
+            setNotificar(true)
+        }, 2000)
+
+
+        setTimeout(() => {
+            setNotificar(false)
+        }, 4000)
+
+        // await EnviarCorreo()
     }
 
     function Verificar(form: HTMLFormElement) {
@@ -103,9 +115,20 @@ const Contact = () => {
                     <button
                         disabled={sending}
                         type="submit"
-                        className="border border-black bg-black hover:bg-[#34be5b] transition-all duration-150 text-white px-3 py-2 rounded">Enviar</button>
+                        className="border border-black bg-black hover:bg-[#34be5b] transition-all duration-150 text-white px-3 py-2 rounded">
+                        Enviar
+                    </button>
                 </div>
             </div>
+            {notificar &&
+                <div className="fixed h-dvh w-dvw bg-[#000a] backdrop-blur top-0 bottom-0 left-0 z-20 flex items-center justify-center">
+                    <div className="rounded-xl m-auto bg-white p-10 w-[20rem] h-[10rem] text-black flex items-center justify-center">
+                        <div className="text-center text-xl">
+                            <p>Correo enviado correctamente!</p>
+                        </div>
+                    </div>
+                </div>
+            }
         </form>
     )
 }

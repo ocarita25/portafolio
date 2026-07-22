@@ -23,6 +23,17 @@ h4 {
     padding: 0;
 }
 
+button:disabled {
+    background-color: #eee;
+    color: #888;
+    cursor: not-allowed;
+
+    &:hover {
+        background-color: #eee;
+        color: #888;
+    }
+}
+
 :root {
     --bg-color-primary: var(--color-primary);
     --bg-color-surface-primary: var(--color-surface-primary);
