@@ -10,6 +10,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { name, email, message } = req.body;
 
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+
+
     if (!name || !email || !message) {
         return res.status(400).json({ error: "Faltan campos requeridos" });
     }

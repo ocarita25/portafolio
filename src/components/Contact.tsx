@@ -29,9 +29,12 @@ const Contact = () => {
         const form = e.currentTarget
 
         if (form.checkValidity()) {
+            alert("falta campos")
             form.reportValidity()
             return
         }
+
+        alert("Correcto")
 
         const res = await fetch("/api/send-email", {
             method: "POST",
