@@ -1,5 +1,16 @@
 export const experiencias = [
     {
+        inicio: "Ago 2025",
+        fin: "Mar 2026",
+        empresa: "ISOCAL",
+        cargo: "Trainee Frontend Developer Jr.",
+        funciones: [
+            "Desarrollo de interfaces web utilizando React, Tailwind CSS y JavaScript",
+            "Implementación de componentes reutilizables y optimización de UI",
+            "Desarrollo de endpoint en Laravel para envío de correos y consumo mediante peticiones HTTP"
+        ],
+    },
+    {
         inicio: "Set 2022",
         fin: "Dic 2023",
         empresa: "Servicio Nacional de Sanidad Agraria - SENASA",

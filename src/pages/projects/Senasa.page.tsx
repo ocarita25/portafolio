@@ -28,7 +28,7 @@ const senasaConstanciasImages = [
 const Senasa = () => {
     return (
         <div className="w-full text-neutral-300">
-            <div className="max-w-[60rem] mx-auto">
+            <div className="max-w-[60rem] mx-auto p-5 md:p-10">
                 <div className="w-full text-center">
                     <h2 className="text-[3rem] my-10">SENASA</h2>
                 </div>
