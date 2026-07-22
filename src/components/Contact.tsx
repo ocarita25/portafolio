@@ -8,6 +8,7 @@ interface FormDataInterface {
 
 const Contact = () => {
 
+    const [sending, setSending] = useState<boolean>(false)
     const [formData, setFormData] = useState<FormDataInterface>(
         {
             name: "",
@@ -25,17 +26,21 @@ const Contact = () => {
 
     async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
         e.preventDefault()
-
         const form = e.currentTarget
+        setSending(true)
 
+        Verificar(form)
+        await EnviarCorreo()
+    }
+
+    function Verificar(form: HTMLFormElement) {
         if (!form.checkValidity()) {
-            alert("falta campos")
             form.reportValidity()
             return
         }
+    }
 
-        alert("Correcto")
-
+    async function EnviarCorreo() {
         const res = await fetch("/api/send-email", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -49,6 +54,7 @@ const Contact = () => {
         } else {
             console.error("Error:", data.error);
         }
+        setSending(false)
     }
 
     return (
@@ -95,6 +101,7 @@ const Contact = () => {
                 </fieldset>
                 <div className="w-full flex justify-center pt-5">
                     <button
+                        disabled={sending}
                         type="submit"
                         className="border border-black bg-black hover:bg-[#34be5b] transition-all duration-150 text-white px-3 py-2 rounded">Enviar</button>
                 </div>
