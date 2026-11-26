@@ -15,9 +15,9 @@ function Acerca() {
                         <ul className=''>
                             <li className='flex flex-col gap-4'>Contacto
                                 <ul className='acerca-sub-lista'>
-                                    <li className='flex items-center gap-4'><FaWhatsapp /><a href={`https://wa.me/+51952009585?text=${mensaje}`} target='_blank'>+51 952 009 585</a></li>
+                                    <li className='flex items-center gap-4'><FaWhatsapp /><a href={`https://wa.me/+51952009585?text=${mensaje}`} target='_blank'>Whatsapp</a></li>
                                     <li className='flex items-center gap-4'><FaEnvelope /><a href='mailto:ocarita25@gmail.com' target='_blank'>ocarita25@gmail.com</a></li>
-                                    <li className='flex items-center gap-4'><FaGithub /><a href='https://github.com/OscarCarita' target='_blank'>Github</a></li>
+                                    <li className='flex items-center gap-4'><FaGithub /><a href='https://github.com/ocarita25' target='_blank'>Github</a></li>
                                     <li className='flex items-center gap-4'><FaLinkedin /><a href='https://www.linkedin.com/in/oscar-abelardo-carita-cohaila-5498bb2a0/' target='_blank'>LinkedIn</a></li>
                                 </ul>
                             </li>
